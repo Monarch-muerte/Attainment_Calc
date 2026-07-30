@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin9",
+      "display_name": "Admin",
+      "role": "admin",
+      "password_hash": "$2a$10$Y2zIgzs1ti5sj2Wkl3dhLuXB21f8TOHf9uqsgXYjZWlZME7BaPYGu",
+      "created_at": "2026-07-25T04:43:42.504Z"
+    }
+  ],
+  "courses": [],
+  "nextUserId": 2,
+  "nextCourseId": 1
+}

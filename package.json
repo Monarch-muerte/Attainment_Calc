@@ -1,0 +1,31 @@
+{
+  "name": "co-po-attainment-system",
+  "version": "1.0.0",
+  "description": "CO/PO Attainment Calculator - full-stack final year project (Express + SQLite + React)",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "node scripts/build-frontend.js",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^7.5.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1",
+    "lucide-react": "^0.383.0",
+    "nodemon": "^3.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7",
+    "xlsx": "^0.18.5"
+  }
+}

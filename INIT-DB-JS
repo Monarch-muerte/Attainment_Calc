@@ -1,0 +1,20 @@
+require('dotenv'). config();
+const fs = require('fs');
+const mysql = require('mysql2/promise');
+
+(async ()=> {
+  const connection = await mysql.createConnection({
+    host: process.env.DB_HOST || 'localhost', port: Number(process.env.DB_PORT || 3306),
+    user: process.env.DB_USER || 'root', password: process.env.DB_PASSWORD || '', multipleStatements: true,
+    ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : undefined
+  });
+  await connection.query(fs.readFileSync('database.sql', 'utf8'));
+  // Preserve data if an earlier version of the portal already created users.
+  await connection.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS password_hash VARCHAR(255) NULL');
+  await connection.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS display_name VARCHAR(120) NULL');
+  for (const table of ['program_exit_survey', 'expert_lecture', 'industry_visit', 'alumni_survey', 'industry_survey']) {
+    await connection.query(`ALTER TABLE \`${table}\` ADD COLUMN IF NOT EXISTS created_by INT UNSIGNED NULL`);
+  }
+  await connection.end();
+  console.log('Database and all attainment tables are ready.');
+})().catch(error => { console.error('Database setup failed:', error.message); process.exit(1); });

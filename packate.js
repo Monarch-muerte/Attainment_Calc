@@ -1,0 +1,12 @@
+PORT=3000
+NODE_ENV=development
+SESSION_SECRET=replace-with-a-long-random-secret-before-publishing
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=college_attainment
+DB_USER=root
+DB_PASSWORD=
+# Set DB_SSL=true for cloud MySQL hosts that require SSL.
+DB_SSL=false
+ADMIN_USERNAME=Admin9
+ADMIN_PASSWORD=654321
